@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:document_scanner_flutter/screens/pdf_generator_gallery.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -17,11 +16,11 @@ class DocumentScannerFlutter {
       ScannerFileSource source, Map<dynamic, String> androidConfigs) async {
     Map<String, String?> finalAndroidArgs = {};
     for (var entry in androidConfigs.entries) {
-      finalAndroidArgs[describeEnum(entry.key)] = entry.value;
+      finalAndroidArgs[entry.key.name] = entry.value;
     }
 
     String? path = await _channel.invokeMethod(
-        describeEnum(source).toLowerCase(), finalAndroidArgs);
+        source.name.toLowerCase(), finalAndroidArgs);
     if (path == null) {
       return null;
     } else {

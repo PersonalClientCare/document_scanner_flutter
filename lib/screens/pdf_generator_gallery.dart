@@ -102,7 +102,6 @@ class _PdfGeneratorGalleryState extends State<PdfGeneratorGallery> {
   Widget build(BuildContext context) {
     var appBar = AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: Colors.amber,
       title: Row(
         children: [
           if (files.isNotEmpty) Text(itemsTitle),

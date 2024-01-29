@@ -16,7 +16,7 @@ class DocumentScannerFlutter {
       ScannerFileSource source, Map<dynamic, String> androidConfigs) async {
     Map<String, String?> finalAndroidArgs = {};
     for (var entry in androidConfigs.entries) {
-      finalAndroidArgs[entry.key.name] = entry.value;
+      finalAndroidArgs[entry.key.toString()] = entry.value;
     }
 
     String? path = await _channel.invokeMethod(

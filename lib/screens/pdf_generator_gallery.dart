@@ -9,17 +9,17 @@ import 'package:path_provider/path_provider.dart';
 typedef Future<File?>? ScannerFilePicker();
 
 /// @nodoc
-class PdfGeneratotGallery extends StatefulWidget {
+class PdfGeneratorGallery extends StatefulWidget {
   final ScannerFilePicker filePicker;
   final Map<dynamic, String> labelsConfig;
 
-  const PdfGeneratotGallery(this.filePicker, this.labelsConfig);
+  const PdfGeneratorGallery(this.filePicker, this.labelsConfig);
 
   @override
-  _PdfGeneratotGalleryState createState() => _PdfGeneratotGalleryState();
+  _PdfGeneratorGalleryState createState() => _PdfGeneratorGalleryState();
 }
 
-class _PdfGeneratotGalleryState extends State<PdfGeneratotGallery> {
+class _PdfGeneratorGalleryState extends State<PdfGeneratorGallery> {
   List<File> files = [];
 
   addImage() async {
@@ -102,6 +102,7 @@ class _PdfGeneratotGalleryState extends State<PdfGeneratotGallery> {
   Widget build(BuildContext context) {
     var appBar = AppBar(
       automaticallyImplyLeading: false,
+      backgroundColor: Colors.amber,
       title: Row(
         children: [
           if (files.isNotEmpty) Text(itemsTitle),
@@ -201,7 +202,7 @@ class _PdfGeneratotGalleryState extends State<PdfGeneratotGallery> {
                   if (files.isNotEmpty)
                     Expanded(
                         child: _mainControl(context,
-                            color: Colors.blue,
+                            color: Colors.amber,
                             icon: Icons.check,
                             title: widget.labelsConfig[ScannerLabelsConfig
                                     .PDF_GALLERY_DONE_LABEL] ??
@@ -214,10 +215,9 @@ class _PdfGeneratotGalleryState extends State<PdfGeneratotGallery> {
                   Expanded(
                       child: _mainControl(context,
                           color:
-                              files.isEmpty ? Colors.blue : Colors.cyanAccent,
+                              files.isEmpty ? Colors.amber : Colors.amberAccent,
                           icon: Icons.add_a_photo,
-                          textColor:
-                              files.isEmpty ? Colors.white : Colors.black,
+                          textColor: Colors.black,
                           title: widget.labelsConfig[ScannerLabelsConfig
                                   .PDF_GALLERY_ADD_IMAGE_LABEL] ??
                               "Add Image",

@@ -45,7 +45,7 @@ class DocumentScannerFlutter {
     return await Navigator.push<File>(
         context,
         MaterialPageRoute(
-            builder: (_) => PdfGeneratotGallery(launchWrapper, labelsConfig)));
+            builder: (_) => PdfGeneratorGallery(launchWrapper, labelsConfig)));
   }
 
   /// Scanner to get single scanned image
